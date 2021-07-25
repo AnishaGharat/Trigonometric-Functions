@@ -7,13 +7,13 @@ pipeline {
 		stage('Build') {
 			steps{
 				git 'https://github.com/AnishaGharat/Trigonometric-Functions.git'
-				sh './mvnw clean compile'
+				sh './mvn clean compile'
 		
 			}
 		}
 		stage('Test') {
 			steps{
-				sh './mvnw test'
+				sh './mvn test'
 			}
 		
 		}

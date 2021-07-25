@@ -6,8 +6,9 @@ pipeline {
 	stages {
 		stage('Build') {
 			steps{
-				git 'https://github.com/AnishaGharat/Trigonometric-Functions.git'
-				sh './mvn clean compile'
+			withMaven {
+				sh './mvn clean verify'
+			   }
 		
 			}
 		}
@@ -21,4 +22,14 @@ pipeline {
 	
 	}
 
+}
+
+
+node {
+  stage ('Build') {
+    git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
+    withMaven {
+      sh "mvn clean verify"
+    } // withMaven will discover the generated Maven artifacts, JUnit Surefire & FailSafe reports and FindBugs reports
+  }
 }

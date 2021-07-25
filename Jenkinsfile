@@ -18,14 +18,6 @@ pipeline {
 		
 		}
 		
-		post {
-			always {
-			
-				junit '**/Test_Reports/*.xml'
-			}
-		
-		
-		}
 	
 	}
 
